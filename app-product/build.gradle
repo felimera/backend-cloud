@@ -34,6 +34,13 @@ dependencies {
 //	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 //	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 //	implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
+
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.2.0'
+	// https://mvnrepository.com/artifact/com.github.cliftonlabs/json-simple
+	implementation group: 'com.github.cliftonlabs', name: 'json-simple', version: '4.0.1'
+
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
