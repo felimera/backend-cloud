@@ -2,6 +2,9 @@ package com.project.appproduct.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.*;
 
 import java.util.Date;
@@ -17,8 +20,11 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty(message = "El nombre no debe estar vacio.")
+    @NotNull(message = "El nombre no puede ser nulo.")
     private String name;
     private String description;
+    @Positive(message = "El stock no puede ser menor a cero.")
     private Double stock;
     private Double price;
     private String status;
