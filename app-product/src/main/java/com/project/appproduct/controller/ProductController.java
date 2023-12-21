@@ -2,10 +2,14 @@ package com.project.appproduct.controller;
 
 import com.project.appproduct.entity.Category;
 import com.project.appproduct.entity.Product;
+import com.project.appproduct.exception.ResponseMessageException;
 import com.project.appproduct.service.ProductService;
+import com.project.appproduct.utils.CadenaUtil;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -47,7 +51,10 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+    public ResponseEntity<Product> createProduct(@Valid @RequestBody Product product, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            throw new ResponseMessageException("401-01", "Error in the attributes sent in the body of the post.", CadenaUtil.formatMessage(bindingResult), HttpStatus.BAD_REQUEST);
+        }
         Product productCreated = productService.createdProduct(product);
         return ResponseEntity.status(HttpStatus.CREATED).body(productCreated);
     }
