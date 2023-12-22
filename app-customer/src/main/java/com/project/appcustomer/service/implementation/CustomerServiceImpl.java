@@ -34,7 +34,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer createCustomer(Customer customer) {
-        Customer customerDb = customerRepository.findByNumberId(customer.getNumeroId());
+        Customer customerDb = customerRepository.findByNumberId(customer.getNumberId());
         if (Objects.nonNull(customerDb))
             return customerDb;
 
@@ -50,7 +50,6 @@ public class CustomerServiceImpl implements CustomerService {
 
         customerDb.setFirstName(customer.getFirstName());
         customerDb.setLastName(customer.getLastName());
-        customerDb.setEmail(customer.getEmail());
         customerDb.setPhotoUrl(customer.getPhotoUrl());
 
         return customerRepository.save(customerDb);
