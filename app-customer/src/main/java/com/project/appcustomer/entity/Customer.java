@@ -21,8 +21,8 @@ public class Customer implements Serializable {
     private Long id;
     @NotEmpty(message = "El numero de documento no puede estar vacio.")
     @Size(min = 8, max = 8, message = "El tamaño del numero de identificacion es 8")
-    @Column(name = "numero_id", unique = true, length = 8, nullable = false)
-    private String numeroId;
+    @Column(name = "number_id", unique = true, length = 8, nullable = false)
+    private String numberId;
     @NotEmpty(message = "El nombre no puede estar vacio.")
     @Column(name = "first_name", nullable = false)
     private String firstName;
