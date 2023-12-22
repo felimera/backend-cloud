@@ -18,5 +18,5 @@ public interface CustomerService {
 
     Customer deleteCustomer(Customer customer);
 
-    Customer getCustumer(Long id);
+    Customer getCustomer(Long id);
 }

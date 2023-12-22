@@ -44,7 +44,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer updateCustomer(Long id, Customer customer) {
-        Customer customerDb = getCustumer(id);
+        Customer customerDb = getCustomer(id);
         if (Objects.isNull(customerDb))
             return null;
 
@@ -58,7 +58,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer deleteCustomer(Customer customer) {
-        Customer customerDb = getCustumer(customer.getId());
+        Customer customerDb = getCustomer(customer.getId());
         if (Objects.isNull(customerDb))
             return null;
 
@@ -68,7 +68,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer getCustumer(Long id) {
+    public Customer getCustomer(Long id) {
         return customerRepository.findById(id).orElse(null);
     }
 }
